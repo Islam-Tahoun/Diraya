@@ -130,13 +130,13 @@ onboarding flow since its background is dark and is the same fill as the inputs.
 [data-layout="onboarding"] > * textarea:not([data-theme="light"]) {
   border: 1px solid #ffffff;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap');
 html,
 body {
   padding: 0;
   margin: 0;
   font-family:
-    "Amiri",
+    "IBM Plex Sans Arabic",
     "plus-jakarta-sans",
     -apple-system,
     BlinkMacSystemFont,
