@@ -9,7 +9,6 @@ export default function LanguagePreference() {
     getLanguageName,
     changeLanguage,
   } = useLanguageOptions();
-  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-y-0.5 my-4">

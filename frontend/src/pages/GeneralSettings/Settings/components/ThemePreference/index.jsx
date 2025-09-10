@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 export default function ThemePreference() {
   const { t } = useTranslation();
   const { theme, setTheme, availableThemes } = useTheme();
-  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-y-0.5 my-4">

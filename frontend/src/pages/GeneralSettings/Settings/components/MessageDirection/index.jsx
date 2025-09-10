@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 export function MessageDirection() {
   const { t } = useTranslation();
   const { msgDirection, setMsgDirection } = useChatMessageAlignment();
-  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-y-0.5 my-4">
