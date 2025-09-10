@@ -61,6 +61,7 @@ const TRANSLATIONS = {
     optional: null,
     yes: null,
     no: null,
+    search: null,
   },
   settings: {
     title: "Paramètres de l'instance",
@@ -89,17 +90,10 @@ const TRANSLATIONS = {
     "experimental-features": "Fonctionnalités Expérimentales",
     contact: "Contacter le Support",
     "browser-extension": "Extension de navigateur",
-    CommunityHub: null,
-    "Explore-Trending": null,
-    "Your-Account": null,
-    "Import-Item": null,
-    OpenSettings: null,
-    ToWorkspaces: null,
-    JoinDiscord: null,
-    helpDocs: null,
-    GitHubCode: null,
-    HideSidebar: null,
-    ShowSidebar: null,
+    "system-prompt-variables": null,
+    interface: null,
+    branding: null,
+    chat: null,
   },
   login: {
     "multi-user": {
@@ -146,7 +140,7 @@ const TRANSLATIONS = {
     contact: "Contacter Mintplex Labs",
   },
   "new-workspace": {
-    title: "Nouveau Espace de Travail",
+    title: "Nouvel Espace de Travail",
     placeholder: "Mon Espace de Travail",
     create: null,
     loadingThreads: null,
@@ -157,7 +151,7 @@ const TRANSLATIONS = {
   },
   "workspaces—settings": {
     general: "Paramètres généraux",
-    chat: "Paramètres de chat",
+    chat: "Paramètres du chat",
     vector: "Base de données vectorielle",
     members: "Membres",
     agent: "Configuration de l'agent",
@@ -240,6 +234,17 @@ const TRANSLATIONS = {
       title: "Invite",
       description:
         "L'invite qui sera utilisée sur cet espace de travail. Définissez le contexte et les instructions pour que l'IA génère une réponse. Vous devez fournir une invite soigneusement conçue pour que l'IA puisse générer une réponse pertinente et précise.",
+      history: {
+        title: null,
+        clearAll: null,
+        noHistory: null,
+        restore: null,
+        delete: null,
+        deleteConfirm: null,
+        clearAllConfirm: null,
+        expand: null,
+        publish: null,
+      },
     },
     refusal: {
       title: "Réponse de refus en mode requête",
@@ -247,6 +252,8 @@ const TRANSLATIONS = {
       query: "requête",
       "desc-end":
         ", vous pouvez souhaiter retourner une réponse de refus personnalisée lorsque aucun contexte n'est trouvé.",
+      "tooltip-title": null,
+      "tooltip-description": null,
     },
     temperature: {
       title: "Température LLM",
@@ -356,67 +363,6 @@ const TRANSLATIONS = {
       at: "Envoyé à",
     },
   },
-  appearance: {
-    title: "Apparence",
-    description:
-      "Personnalisez les paramètres d'apparence de votre plateforme.",
-    themePreference: {
-      theme: null,
-      description: null,
-      default: null,
-      light: null,
-    },
-    languages: {
-      title: null,
-      description: null,
-    },
-    Chat: {
-      title: null,
-      description: null,
-      "scrollbar-Title": null,
-      "scrollbar-description": null,
-      "ItemDirection-left": null,
-      "ItemDirection-left_right": null,
-    },
-    logo: {
-      title: "Personnaliser le logo",
-      description:
-        "Téléchargez votre logo personnalisé pour rendre votre chatbot unique.",
-      add: "Ajouter un logo personnalisé",
-      recommended: "Taille recommandée: 800 x 200",
-      remove: "Supprimer",
-      replace: "Remplacer",
-    },
-    message: {
-      title: "Personnaliser les messages",
-      description:
-        "Personnalisez les messages automatiques affichés à vos utilisateurs.",
-      new: "Nouveau",
-      system: "système",
-      user: "utilisateur",
-      message: "message",
-      assistant: "Assistant de chat AnythingLLM",
-      "double-click": "Double-cliquez pour modifier...",
-      save: "Enregistrer les messages",
-    },
-    icons: {
-      title: "Icônes de pied de page personnalisées",
-      description:
-        "Personnalisez les icônes de pied de page affichées en bas de la barre latérale.",
-      icon: "Icône",
-      link: "Lien",
-    },
-    Custom: {
-      title: null,
-      description: null,
-      "tab-title": null,
-      "tab-description": null,
-      tabTitle: null,
-      "tab-favicon-title": null,
-      "tab-favicon-description": null,
-      tabFavicon: null,
-    },
-  },
   api: {
     title: "Clés API",
     description:
@@ -434,6 +380,17 @@ const TRANSLATIONS = {
     description:
       "Voici les identifiants et les paramètres de votre fournisseur LLM de chat et d'intégration préféré. Il est important que ces clés soient actuelles et correctes, sinon AnythingLLM ne fonctionnera pas correctement.",
     provider: "Fournisseur LLM",
+    providers: {
+      azure_openai: {
+        azure_service_endpoint: null,
+        api_key: null,
+        chat_deployment_name: null,
+        chat_model_token_limit: null,
+        model_type: null,
+        default: null,
+        reasoning: null,
+      },
+    },
   },
   transcription: {
     title: "Préférence du modèle de transcription",
@@ -455,8 +412,6 @@ const TRANSLATIONS = {
       "L'intégration est le processus de transformation du texte en vecteurs. Ces identifiants sont nécessaires pour transformer vos fichiers et invites en un format que AnythingLLM peut utiliser pour traiter.",
     provider: {
       title: "Fournisseur d'intégration",
-      description:
-        "Aucune configuration n'est nécessaire lors de l'utilisation du moteur d'intégration natif de AnythingLLM.",
     },
   },
   text: {
@@ -465,9 +420,6 @@ const TRANSLATIONS = {
       "Parfois, vous voudrez peut-être changer la façon dont les nouveaux documents sont divisés et découpés avant d'être insérés dans votre base de données vectorielle.",
     "desc-end":
       "Vous ne devez modifier ce paramètre que si vous comprenez comment fonctionne la division du texte et ses effets secondaires.",
-    "warn-start": "Les changements ici s'appliqueront uniquement aux",
-    "warn-center": "nouveaux documents intégrés",
-    "warn-end": ", pas aux documents existants.",
     size: {
       title: "Taille des segments de texte",
       description:
@@ -497,7 +449,8 @@ const TRANSLATIONS = {
     table: {
       workspace: "Espace de travail",
       chats: "Chats envoyés",
-      Active: "Domaines actifs",
+      active: "Domaines actifs",
+      created: null,
     },
   },
   "embed-chats": {
@@ -511,30 +464,6 @@ const TRANSLATIONS = {
       message: "Message",
       response: "Réponse",
       at: "Envoyé à",
-    },
-  },
-  multi: {
-    title: "Mode multi-utilisateurs",
-    description:
-      "Configurez votre instance pour prendre en charge votre équipe en activant le mode multi-utilisateurs.",
-    enable: {
-      "is-enable": "Le mode multi-utilisateurs est activé",
-      enable: "Activer le mode multi-utilisateurs",
-      description:
-        "Par défaut, vous serez le seul administrateur. En tant qu'administrateur, vous devrez créer des comptes pour tous les nouveaux utilisateurs ou administrateurs. Ne perdez pas votre mot de passe car seul un utilisateur administrateur peut réinitialiser les mots de passe.",
-      username: "Nom d'utilisateur du compte administrateur",
-      password: "Mot de passe du compte administrateur",
-    },
-    password: {
-      title: "Protection par mot de passe",
-      description:
-        "Protégez votre instance AnythingLLM avec un mot de passe. Si vous oubliez ce mot de passe, il n'y a pas de méthode de récupération, donc assurez-vous de le sauvegarder.",
-    },
-    instance: {
-      title: "Protéger l'instance par mot de passe",
-      description:
-        "Par défaut, vous serez le seul administrateur. En tant qu'administrateur, vous devrez créer des comptes pour tous les nouveaux utilisateurs ou administrateurs. Ne perdez pas votre mot de passe car seul un utilisateur administrateur peut réinitialiser les mots de passe.",
-      password: "Mot de passe de l'instance",
     },
   },
   event: {
@@ -705,6 +634,17 @@ const TRANSLATIONS = {
       watch_explained_block3_end: null,
       accept: null,
     },
+    obsidian: {
+      name: null,
+      description: null,
+      vault_location: null,
+      vault_description: null,
+      selected_files: null,
+      importing: null,
+      import_vault: null,
+      processing_time: null,
+      vault_warning: null,
+    },
   },
   chat_window: {
     welcome: null,
@@ -720,6 +660,47 @@ const TRANSLATIONS = {
     text_size: null,
     microphone: null,
     send: null,
+    attachments_processing: null,
+    tts_speak_message: null,
+    copy: null,
+    regenerate: null,
+    regenerate_response: null,
+    good_response: null,
+    more_actions: null,
+    hide_citations: null,
+    show_citations: null,
+    pause_tts_speech_message: null,
+    fork: null,
+    delete: null,
+    save_submit: null,
+    cancel: null,
+    edit_prompt: null,
+    edit_response: null,
+    at_agent: null,
+    default_agent_description: null,
+    custom_agents_coming_soon: null,
+    slash_reset: null,
+    preset_reset_description: null,
+    add_new_preset: null,
+    command: null,
+    your_command: null,
+    placeholder_prompt: null,
+    description: null,
+    placeholder_description: null,
+    save: null,
+    small: null,
+    normal: null,
+    large: null,
+    workspace_llm_manager: {
+      search: null,
+      loading_workspace_settings: null,
+      available_models: null,
+      available_models_description: null,
+      save: null,
+      saving: null,
+      missing_credentials: null,
+      missing_credentials_description: null,
+    },
   },
   profile_settings: {
     edit_account: null,
@@ -728,11 +709,308 @@ const TRANSLATIONS = {
     username: null,
     username_description: null,
     new_password: null,
-    passwort_description: null,
+    password_description: null,
     cancel: null,
     update_account: null,
     theme: null,
     language: null,
+    failed_upload: null,
+    upload_success: null,
+    failed_remove: null,
+    profile_updated: null,
+    failed_update_user: null,
+    account: null,
+    support: null,
+    signout: null,
+  },
+  customization: {
+    interface: {
+      title: null,
+      description: null,
+    },
+    branding: {
+      title: null,
+      description: null,
+    },
+    chat: {
+      title: null,
+      description: null,
+      auto_submit: {
+        title: null,
+        description: null,
+      },
+      auto_speak: {
+        title: null,
+        description: null,
+      },
+      spellcheck: {
+        title: null,
+        description: null,
+      },
+    },
+    items: {
+      theme: {
+        title: null,
+        description: null,
+      },
+      "show-scrollbar": {
+        title: null,
+        description: null,
+      },
+      "support-email": {
+        title: null,
+        description: null,
+      },
+      "app-name": {
+        title: null,
+        description: null,
+      },
+      "chat-message-alignment": {
+        title: null,
+        description: null,
+      },
+      "display-language": {
+        title: null,
+        description: null,
+      },
+      logo: {
+        title: null,
+        description: null,
+        add: null,
+        recommended: null,
+        remove: null,
+        replace: null,
+      },
+      "welcome-messages": {
+        title: null,
+        description: null,
+        new: null,
+        system: null,
+        user: null,
+        message: null,
+        assistant: null,
+        "double-click": null,
+        save: null,
+      },
+      "browser-appearance": {
+        title: null,
+        description: null,
+        tab: {
+          title: null,
+          description: null,
+        },
+        favicon: {
+          title: null,
+          description: null,
+        },
+      },
+      "sidebar-footer": {
+        title: null,
+        description: null,
+        icon: null,
+        link: null,
+      },
+    },
+  },
+  "main-page": {
+    noWorkspaceError: null,
+    checklist: {
+      title: null,
+      tasksLeft: null,
+      completed: null,
+      dismiss: null,
+      tasks: {
+        create_workspace: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        send_chat: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        embed_document: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        setup_system_prompt: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        define_slash_command: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        visit_community: {
+          title: null,
+          description: null,
+          action: null,
+        },
+      },
+    },
+    quickLinks: {
+      title: null,
+      sendChat: null,
+      embedDocument: null,
+      createWorkspace: null,
+    },
+    exploreMore: {
+      title: null,
+      features: {
+        customAgents: {
+          title: null,
+          description: null,
+          primaryAction: null,
+          secondaryAction: null,
+        },
+        slashCommands: {
+          title: null,
+          description: null,
+          primaryAction: null,
+          secondaryAction: null,
+        },
+        systemPrompts: {
+          title: null,
+          description: null,
+          primaryAction: null,
+          secondaryAction: null,
+        },
+      },
+    },
+    announcements: {
+      title: null,
+    },
+    resources: {
+      title: null,
+      links: {
+        docs: null,
+        star: null,
+      },
+      keyboardShortcuts: null,
+    },
+  },
+  "keyboard-shortcuts": {
+    title: null,
+    shortcuts: {
+      settings: null,
+      workspaceSettings: null,
+      home: null,
+      workspaces: null,
+      apiKeys: null,
+      llmPreferences: null,
+      chatSettings: null,
+      help: null,
+      showLLMSelector: null,
+    },
+  },
+  community_hub: {
+    publish: {
+      system_prompt: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+      agent_flow: {
+        public_description: null,
+        private_description: null,
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        privacy_note: null,
+      },
+      generic: {
+        unauthenticated: {
+          title: null,
+          description: null,
+          button: null,
+        },
+      },
+      slash_command: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        command_label: null,
+        command_description: null,
+        command_placeholder: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+    },
+  },
+  security: {
+    title: "Sécurité",
+    multiuser: {
+      title: "Mode multi-utilisateurs",
+      description:
+        "Configurez votre instance pour prendre en charge votre équipe en activant le mode multi-utilisateurs.",
+      enable: {
+        "is-enable": "Le mode multi-utilisateurs est activé",
+        enable: "Activer le mode multi-utilisateurs",
+        description:
+          "Par défaut, vous serez le seul administrateur. En tant qu'administrateur, vous devrez créer des comptes pour tous les nouveaux utilisateurs ou administrateurs. Ne perdez pas votre mot de passe car seul un utilisateur administrateur peut réinitialiser les mots de passe.",
+        username: "Nom d'utilisateur du compte administrateur",
+        password: "Mot de passe du compte administrateur",
+      },
+    },
+    password: {
+      title: "Protection par mot de passe",
+      description:
+        "Protégez votre instance AnythingLLM avec un mot de passe. Si vous oubliez ce mot de passe, il n'y a pas de méthode de récupération, donc assurez-vous de le sauvegarder.",
+      "password-label": "Mot de passe de l'instance",
+    },
   },
 };
 

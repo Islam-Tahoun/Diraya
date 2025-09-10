@@ -26,6 +26,8 @@ import XAILogo from "@/media/llmprovider/xai.png";
 import NvidiaNimLogo from "@/media/llmprovider/nvidia-nim.png";
 import CohereLogo from "@/media/llmprovider/cohere.png";
 import PPIOLogo from "@/media/llmprovider/ppio.png";
+import DellProAiStudioLogo from "@/media/llmprovider/dpais.png";
+import MoonshotAiLogo from "@/media/llmprovider/moonshotai.png";
 
 import OpenAiOptions from "@/components/LLMSelection/OpenAiOptions";
 import GenericOpenAiOptions from "@/components/LLMSelection/GenericOpenAiOptions";
@@ -53,6 +55,8 @@ import NovitaLLMOptions from "@/components/LLMSelection/NovitaLLMOptions";
 import XAILLMOptions from "@/components/LLMSelection/XAiLLMOptions";
 import NvidiaNimOptions from "@/components/LLMSelection/NvidiaNimOptions";
 import PPIOLLMOptions from "@/components/LLMSelection/PPIOLLMOptions";
+import DellProAiStudioOptions from "@/components/LLMSelection/DPAISOptions";
+import MoonshotAiOptions from "@/components/LLMSelection/MoonshotAiOptions";
 
 import LLMItem from "@/components/LLMSelection/LLMItem";
 import System from "@/models/system";
@@ -114,12 +118,12 @@ const LLMS = [
     description: "Run LLMs locally on your own machine.",
   },
   {
-    name: "Novita AI",
-    value: "novita",
-    logo: NovitaLogo,
-    options: (settings) => <NovitaLLMOptions settings={settings} />,
+    name: "Dell Pro AI Studio",
+    value: "dpais",
+    logo: DellProAiStudioLogo,
+    options: (settings) => <DellProAiStudioOptions settings={settings} />,
     description:
-      "Reliable, Scalable, and Cost-Effective for LLMs from Novita AI",
+      "Run powerful LLMs quickly on NPU powered by Dell Pro AI Studio.",
   },
   {
     name: "LM Studio",
@@ -135,6 +139,14 @@ const LLMS = [
     logo: LocalAiLogo,
     options: (settings) => <LocalAiOptions settings={settings} />,
     description: "Run LLMs locally on your own machine.",
+  },
+  {
+    name: "Novita AI",
+    value: "novita",
+    logo: NovitaLogo,
+    options: (settings) => <NovitaLLMOptions settings={settings} />,
+    description:
+      "Reliable, Scalable, and Cost-Effective for LLMs from Novita AI",
   },
   {
     name: "KoboldCPP",
@@ -252,6 +264,13 @@ const LLMS = [
     logo: XAILogo,
     options: (settings) => <XAILLMOptions settings={settings} />,
     description: "Run xAI's powerful LLMs like Grok-2 and more.",
+  },
+  {
+    name: "Moonshot AI",
+    value: "moonshotai",
+    logo: MoonshotAiLogo,
+    options: (settings) => <MoonshotAiOptions settings={settings} />,
+    description: "Run Moonshot AI's powerful LLMs.",
   },
 ];
 

@@ -68,6 +68,7 @@ const TRANSLATIONS = {
     optional: "اختياري",
     yes: "نعم",
     no: "لا",
+    search: null,
   },
   settings: {
     title: "إعدادات المثيل",
@@ -96,6 +97,10 @@ const TRANSLATIONS = {
     "experimental-features": "الميزات التجريبية",
     contact: "اتصل بالدعم",
     "browser-extension": "ملحق المتصفح",
+    "system-prompt-variables": null,
+    interface: null,
+    branding: null,
+    chat: null,
     CommunityHub: "مركز المجتمع",
     "Explore-Trending": "استكشف المواضيع الشائعة",
     "Your-Account": "حسابك",
@@ -244,6 +249,17 @@ const TRANSLATIONS = {
       title: "النداء",
       description:
         "النداء التي سيتم استخدامه في مساحة العمل هذه. حدد السياق والتعليمات للذكاء الاصطناعي للاستجابة. يجب عليك تقديم نداء مصمم بعناية حتى يتمكن الذكاء الاصطناعي من إنشاء استجابة دقيقة وذات صلة.",
+      history: {
+        title: null,
+        clearAll: null,
+        noHistory: null,
+        restore: null,
+        delete: null,
+        deleteConfirm: null,
+        clearAllConfirm: null,
+        expand: null,
+        publish: null,
+      },
     },
     refusal: {
       title: "الرد على رفض وضعية الاستعلام",
@@ -251,6 +267,8 @@ const TRANSLATIONS = {
       query: "استعلام",
       "desc-end":
         "وضعٍية ترغب في إرجاع رفض آخر مناسب عندما لا يتم العثور على السياق.",
+      "tooltip-title": null,
+      "tooltip-description": null,
     },
     temperature: {
       title: "حرارة نموذج التعلم العميق",
@@ -437,6 +455,17 @@ const TRANSLATIONS = {
     description:
       "هذه هي بيانات الاعتماد والإعدادات الخاصة بنموذج التعلم العميق للمحادثة وموفر التضمين المفضلين لديك . من المهم أن تكون هذه المفاتيح حديثة وصحيحة وإلا فلن يعمل برنامج إني ثينك إلْلْم بشكل صحيح.",
     provider: "موفر نموذج التعلم العميق",
+    providers: {
+      azure_openai: {
+        azure_service_endpoint: null,
+        api_key: null,
+        chat_deployment_name: null,
+        chat_model_token_limit: null,
+        model_type: null,
+        default: null,
+        reasoning: null,
+      },
+    },
   },
   transcription: {
     title: "تفضيل نموذج النسخ",
@@ -457,8 +486,6 @@ const TRANSLATIONS = {
       "التضمين هو عملية تحويل النص إلى متجهات. هذه البيانات مطلوبة لتحويل ملفاتك ومطالباتك إلى تنسيق يمكن لـ إني ثينك إلْلْمْ استخدامه للمعالجة.",
     provider: {
       title: "موفر التضمين",
-      description:
-        "لا يلزم إجراء أي إعداد عند استخدام محرك التضمين الأصلي الخاص بـ إني ثينك إلْلْمْ.",
     },
   },
   text: {
@@ -467,9 +494,6 @@ const TRANSLATIONS = {
       "في بعض الأحيان، قد ترغب في تغيير الطريقة الافتراضية التي يتم بها تقسيم المستندات الجديدة وتقطيعها قبل إدراجها في قاعدة بيانات المتجهة الخاصة بك.",
     "desc-end":
       "يجب عليك فقط تعديل هذا الإعداد إذا كنت تفهم كيفية عمل تقسيم النص وتأثيراته الجانبية.",
-    "warn-start": "التغييرات هنا سوف تنطبق فقط على",
-    "warn-center": "المستندات المضمنة حديثًا",
-    "warn-end": "، وليس على المستندات الموجودة.",
     size: {
       title: "حجم قطعة النص",
       description:
@@ -499,7 +523,8 @@ const TRANSLATIONS = {
     table: {
       workspace: "مساحة العمل",
       chats: "المحادثات المرسلة",
-      Active: "المجالات النشطة",
+      active: "المجالات النشطة",
+      created: null,
     },
   },
   "embed-chats": {
@@ -513,30 +538,6 @@ const TRANSLATIONS = {
       message: "رسالة",
       response: "استجابة",
       at: "أرسلت في",
-    },
-  },
-  multi: {
-    title: "وضعية المستعملين المتعددين",
-    description:
-      "قم بإعداد مثيلك لدعم فريقك من خلال تنشيط وضعية المستعملين المتعددين.",
-    enable: {
-      "is-enable": "تم تمكين وضعية المستعملين المتعددين",
-      enable: "تمكين وضعية المستعملين المتعددين",
-      description:
-        "افتراضيًا، ستكون أنت المشرف الوحيد. وبصفتك مشرفا ستحتاج إلى إنشاء حسابات لجميع المستعملين أو المشرفين الجدد. لا تفقد كلمة مرورك، حيث يمكن فقط للمستعمل المشرف إعادة تعيين كلمات المرور.",
-      username: "اسم المستعمل لحساب المشرف",
-      password: "كلمة مرور حساب المشرف",
-    },
-    password: {
-      title: "حماية كلمة المرور",
-      description:
-        "إحم مثيل إني ثينك إلْلْمْ بكلمة المرور. إذا نسيتها فلا يوجد طريقة لاستردادها، فاحرص على حفظها.",
-    },
-    instance: {
-      title: "حماية كلمة مرور المثيل",
-      description:
-        "افتراضيًا، ستكون أنت المشرف الوحيد. وبصفتك مشرفا، ستحتاج إلى إنشاء حسابات لجميع المستعملين أو المشرفين الجدد. لا تفقد كلمة مرورك، حيث يمكن فقط لمستعمل مشرف إعادة تعيين كلمات المرور.",
-      password: "كلمة مرور المثيل",
     },
   },
   event: {
@@ -737,6 +738,17 @@ const TRANSLATIONS = {
       watch_explained_block3_end: " عرض المشرف.",
       accept: "حسنا، فهمت",
     },
+    obsidian: {
+      name: null,
+      description: null,
+      vault_location: null,
+      vault_description: null,
+      selected_files: null,
+      importing: null,
+      import_vault: null,
+      processing_time: null,
+      vault_warning: null,
+    },
   },
   chat_window: {
     welcome: "مرحباً بكم في مساحة عملك الجديدة.",
@@ -752,6 +764,47 @@ const TRANSLATIONS = {
     text_size: "تغيير حجم النص.",
     microphone: "تحدث بما تريد.",
     send: "إرسال رسالة فورية إلى مساحة العمل",
+    attachments_processing: null,
+    tts_speak_message: null,
+    copy: null,
+    regenerate: null,
+    regenerate_response: null,
+    good_response: null,
+    more_actions: null,
+    hide_citations: null,
+    show_citations: null,
+    pause_tts_speech_message: null,
+    fork: null,
+    delete: null,
+    save_submit: null,
+    cancel: null,
+    edit_prompt: null,
+    edit_response: null,
+    at_agent: null,
+    default_agent_description: null,
+    custom_agents_coming_soon: null,
+    slash_reset: null,
+    preset_reset_description: null,
+    add_new_preset: null,
+    command: null,
+    your_command: null,
+    placeholder_prompt: null,
+    description: null,
+    placeholder_description: null,
+    save: null,
+    small: null,
+    normal: null,
+    large: null,
+    workspace_llm_manager: {
+      search: null,
+      loading_workspace_settings: null,
+      available_models: null,
+      available_models_description: null,
+      save: null,
+      saving: null,
+      missing_credentials: null,
+      missing_credentials_description: null,
+    },
   },
   profile_settings: {
     edit_account: "تعديل الحساب",
@@ -761,11 +814,308 @@ const TRANSLATIONS = {
     username_description:
       "يجب أن يحتوي اسم المستعمل فقط على أحرف صغيرة وأرقام وشرطات سفلية وواصلات بدون مسافات",
     new_password: "كلمة مرور جديدة",
-    passwort_description: "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل",
+    password_description: "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل",
     cancel: "إلغاء",
     update_account: "تحديث الحساب",
     theme: "تفضيلات السمة",
     language: "اللغة المفضلة",
+    failed_upload: null,
+    upload_success: null,
+    failed_remove: null,
+    profile_updated: null,
+    failed_update_user: null,
+    account: null,
+    support: null,
+    signout: null,
+  },
+  customization: {
+    interface: {
+      title: null,
+      description: null,
+    },
+    branding: {
+      title: null,
+      description: null,
+    },
+    chat: {
+      title: null,
+      description: null,
+      auto_submit: {
+        title: null,
+        description: null,
+      },
+      auto_speak: {
+        title: null,
+        description: null,
+      },
+      spellcheck: {
+        title: null,
+        description: null,
+      },
+    },
+    items: {
+      theme: {
+        title: null,
+        description: null,
+      },
+      "show-scrollbar": {
+        title: null,
+        description: null,
+      },
+      "support-email": {
+        title: null,
+        description: null,
+      },
+      "app-name": {
+        title: null,
+        description: null,
+      },
+      "chat-message-alignment": {
+        title: null,
+        description: null,
+      },
+      "display-language": {
+        title: null,
+        description: null,
+      },
+      logo: {
+        title: null,
+        description: null,
+        add: null,
+        recommended: null,
+        remove: null,
+        replace: null,
+      },
+      "welcome-messages": {
+        title: null,
+        description: null,
+        new: null,
+        system: null,
+        user: null,
+        message: null,
+        assistant: null,
+        "double-click": null,
+        save: null,
+      },
+      "browser-appearance": {
+        title: null,
+        description: null,
+        tab: {
+          title: null,
+          description: null,
+        },
+        favicon: {
+          title: null,
+          description: null,
+        },
+      },
+      "sidebar-footer": {
+        title: null,
+        description: null,
+        icon: null,
+        link: null,
+      },
+    },
+  },
+  "main-page": {
+    noWorkspaceError: null,
+    checklist: {
+      title: null,
+      tasksLeft: null,
+      completed: null,
+      dismiss: null,
+      tasks: {
+        create_workspace: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        send_chat: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        embed_document: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        setup_system_prompt: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        define_slash_command: {
+          title: null,
+          description: null,
+          action: null,
+        },
+        visit_community: {
+          title: null,
+          description: null,
+          action: null,
+        },
+      },
+    },
+    quickLinks: {
+      title: null,
+      sendChat: null,
+      embedDocument: null,
+      createWorkspace: null,
+    },
+    exploreMore: {
+      title: null,
+      features: {
+        customAgents: {
+          title: null,
+          description: null,
+          primaryAction: null,
+          secondaryAction: null,
+        },
+        slashCommands: {
+          title: null,
+          description: null,
+          primaryAction: null,
+          secondaryAction: null,
+        },
+        systemPrompts: {
+          title: null,
+          description: null,
+          primaryAction: null,
+          secondaryAction: null,
+        },
+      },
+    },
+    announcements: {
+      title: null,
+    },
+    resources: {
+      title: null,
+      links: {
+        docs: null,
+        star: null,
+      },
+      keyboardShortcuts: null,
+    },
+  },
+  "keyboard-shortcuts": {
+    title: null,
+    shortcuts: {
+      settings: null,
+      workspaceSettings: null,
+      home: null,
+      workspaces: null,
+      apiKeys: null,
+      llmPreferences: null,
+      chatSettings: null,
+      help: null,
+      showLLMSelector: null,
+    },
+  },
+  community_hub: {
+    publish: {
+      system_prompt: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+      agent_flow: {
+        public_description: null,
+        private_description: null,
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        privacy_note: null,
+      },
+      generic: {
+        unauthenticated: {
+          title: null,
+          description: null,
+          button: null,
+        },
+      },
+      slash_command: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        command_label: null,
+        command_description: null,
+        command_placeholder: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+    },
+  },
+  security: {
+    title: "حماية",
+    multiuser: {
+      title: "وضعية المستعملين المتعددين",
+      description:
+        "قم بإعداد مثيلك لدعم فريقك من خلال تنشيط وضعية المستعملين المتعددين.",
+      enable: {
+        "is-enable": "تم تمكين وضعية المستعملين المتعددين",
+        enable: "تمكين وضعية المستعملين المتعددين",
+        description:
+          "افتراضيًا، ستكون أنت المشرف الوحيد. وبصفتك مشرفا ستحتاج إلى إنشاء حسابات لجميع المستعملين أو المشرفين الجدد. لا تفقد كلمة مرورك، حيث يمكن فقط للمستعمل المشرف إعادة تعيين كلمات المرور.",
+        username: "اسم المستعمل لحساب المشرف",
+        password: "كلمة مرور حساب المشرف",
+      },
+    },
+    password: {
+      title: "حماية كلمة المرور",
+      description:
+        "إحم مثيل إني ثينك إلْلْمْ بكلمة المرور. إذا نسيتها فلا يوجد طريقة لاستردادها، فاحرص على حفظها.",
+      "password-label": "كلمة مرور المثيل",
+    },
   },
 };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 
 import BlockList, { BLOCK_TYPES, BLOCK_INFO } from "./BlockList";
 import AddBlockMenu from "./AddBlockMenu";
@@ -8,6 +9,7 @@ import AgentFlows from "@/models/agentFlows";
 import { useTheme } from "@/hooks/useTheme";
 import HeaderMenu from "./HeaderMenu";
 import paths from "@/utils/paths";
+import PublishEntityModal from "@/components/CommunityHub/PublishEntityModal";
 
 const DEFAULT_BLOCKS = [
   {
@@ -51,6 +53,7 @@ export default function AgentBuilder() {
   const [selectedFlowForDetails, setSelectedFlowForDetails] = useState(null);
   const nameRef = useRef(null);
   const descriptionRef = useRef(null);
+  const [showPublishModal, setShowPublishModal] = useState(false);
 
   useEffect(() => {
     loadAvailableFlows();
@@ -223,7 +226,9 @@ export default function AgentBuilder() {
       await loadAvailableFlows();
     } catch (error) {
       console.error("Save error details:", error);
-      showToast("Failed to save agent flow", "error", { clear: true });
+      showToast(`Failed to save agent flow. ${error.message}`, "error", {
+        clear: true,
+      });
     }
   };
 
@@ -288,18 +293,6 @@ export default function AgentBuilder() {
     });
   };
 
-  // const runFlow = async (uuid) => {
-  //   try {
-  //     const { success, error, _results } = await AgentFlows.runFlow(uuid);
-  //     if (!success) throw new Error(error);
-
-  //     showToast("Flow executed successfully!", "success", { clear: true });
-  //   } catch (error) {
-  //     console.error(error);
-  //     showToast("Failed to run agent flow", "error", { clear: true });
-  //   }
-  // };
-
   const clearFlow = () => {
     if (!!flowId) navigate(paths.agents.builder());
     setAgentName("");
@@ -316,6 +309,25 @@ export default function AgentBuilder() {
     setBlocks(newBlocks);
   };
 
+  const handlePublishFlow = () => {
+    setShowPublishModal(true);
+  };
+
+  const flowInfoBlock = blocks.find(
+    (block) => block.type === BLOCK_TYPES.FLOW_INFO
+  );
+  const flowEntity = {
+    name: flowInfoBlock?.config?.name || "",
+    description: flowInfoBlock?.config?.description || "",
+    steps: blocks
+      .filter(
+        (block) =>
+          block.type !== BLOCK_TYPES.FINISH &&
+          block.type !== BLOCK_TYPES.FLOW_INFO
+      )
+      .map((block) => ({ type: block.type, config: block.config })),
+  };
+
   return (
     <div
       style={{
@@ -328,12 +340,19 @@ export default function AgentBuilder() {
       }}
       className="w-full h-screen flex bg-theme-bg-primary"
     >
+      <PublishEntityModal
+        show={showPublishModal}
+        onClose={() => setShowPublishModal(false)}
+        entityType="agent-flow"
+        entity={flowEntity}
+      />
       <div className="w-full flex flex-col">
         <HeaderMenu
           agentName={agentName}
           availableFlows={availableFlows}
           onNewFlow={clearFlow}
           onSaveFlow={saveFlow}
+          onPublishFlow={handlePublishFlow}
         />
         <div className="flex-1 p-6 overflow-y-auto">
           <div className="max-w-xl mx-auto mt-14">
@@ -349,6 +368,7 @@ export default function AgentBuilder() {
             />
 
             <AddBlockMenu
+              blocks={blocks}
               showBlockMenu={showBlockMenu}
               setShowBlockMenu={setShowBlockMenu}
               addBlock={addBlock}
@@ -356,6 +376,21 @@ export default function AgentBuilder() {
           </div>
         </div>
       </div>
+      <Tooltip
+        id="content-summarization-tooltip"
+        place="top"
+        delayShow={300}
+        className="tooltip !text-xs z-99"
+      >
+        <p className="text-sm">
+          When enabled, long webpage content will be automatically summarized to
+          reduce token usage.
+          <br />
+          <br />
+          Note: This may affect data quality and remove specific details from
+          the original content.
+        </p>
+      </Tooltip>
     </div>
   );
 }

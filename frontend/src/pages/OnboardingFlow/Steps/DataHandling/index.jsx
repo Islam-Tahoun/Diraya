@@ -36,6 +36,9 @@ import QDrantLogo from "@/media/vectordbs/qdrant.png";
 import MilvusLogo from "@/media/vectordbs/milvus.png";
 import VoyageAiLogo from "@/media/embeddingprovider/voyageai.png";
 import PPIOLogo from "@/media/llmprovider/ppio.png";
+import PGVectorLogo from "@/media/vectordbs/pgvector.png";
+import DPAISLogo from "@/media/llmprovider/dpais.png";
+import MoonshotAiLogo from "@/media/llmprovider/moonshotai.png";
 
 import React, { useState, useEffect } from "react";
 import paths from "@/utils/paths";
@@ -234,14 +237,45 @@ export const LLM_SELECTION_PRIVACY = {
     ],
     logo: PPIOLogo,
   },
+  dpais: {
+    name: "Dell Pro AI Studio",
+    description: [
+      "Your model and chat contents are only accessible on the computer running Dell Pro AI Studio",
+    ],
+    logo: DPAISLogo,
+  },
+  moonshotai: {
+    name: "Moonshot AI",
+    description: [
+      "Your chats may be used by Moonshot AI for training and model refinement",
+      "Your prompts and document text used in response creation are visible to Moonshot AI",
+    ],
+    logo: MoonshotAiLogo,
+  },
 };
 
 export const VECTOR_DB_PRIVACY = {
+  pgvector: {
+    name: "PGVector",
+    description: [
+      "Your vectors and document text are stored on your PostgreSQL instance",
+      "Access to your instance is managed by you",
+    ],
+    logo: PGVectorLogo,
+  },
   chroma: {
     name: "Chroma",
     description: [
       "Your vectors and document text are stored on your Chroma instance",
       "Access to your instance is managed by you",
+    ],
+    logo: ChromaLogo,
+  },
+  chromacloud: {
+    name: "Chroma Cloud",
+    description: [
+      "Your vectors and document text are stored on Chroma's cloud service",
+      "Access to your data is managed by Chroma",
     ],
     logo: ChromaLogo,
   },

@@ -70,6 +70,7 @@ const TRANSLATIONS = {
     optional: "Optional",
     yes: "Yes",
     no: "No",
+    search: "Search",
   },
 
   // Setting Sidebar menu items.
@@ -81,6 +82,9 @@ const TRANSLATIONS = {
     workspaces: "Workspaces",
     "workspace-chats": "Workspace Chats",
     customization: "Customization",
+    interface: "UI Preferences",
+    branding: "Branding & Whitelabeling",
+    chat: "Chat",
     "api-keys": "Developer API",
     llm: "LLM",
     transcription: "Transcription",
@@ -97,6 +101,7 @@ const TRANSLATIONS = {
     "agent-skills": "Agent Skills",
     admin: "Admin",
     tools: "Tools",
+    "system-prompt-variables": "System Prompt Variables",
     "experimental-features": "Experimental Features",
     contact: "Contact Support",
     "browser-extension": "Browser Extension",
@@ -158,6 +163,90 @@ const TRANSLATIONS = {
     part6: "Have Fun!",
     starOnGitHub: "Star on GitHub",
     contact: "Contact Mintplex Labs",
+  },
+
+  "main-page": {
+    noWorkspaceError: "Please create a workspace before starting a chat.",
+    checklist: {
+      title: "Getting Started",
+      tasksLeft: "tasks left",
+      completed: "You're on your way to becoming an AnythingLLM expert!",
+      dismiss: "close",
+      tasks: {
+        create_workspace: {
+          title: "Create a workspace",
+          description: "Create your first workspace to get started",
+          action: "Create",
+        },
+        send_chat: {
+          title: "Send a chat",
+          description: "Start a conversation with your AI assistant",
+          action: "Chat",
+        },
+        embed_document: {
+          title: "Embed a document",
+          description: "Add your first document to your workspace",
+          action: "Embed",
+        },
+        setup_system_prompt: {
+          title: "Set up a system prompt",
+          description: "Configure your AI assistant's behavior",
+          action: "Set Up",
+        },
+        define_slash_command: {
+          title: "Define a slash command",
+          description: "Create custom commands for your assistant",
+          action: "Define",
+        },
+        visit_community: {
+          title: "Visit Community Hub",
+          description: "Explore community resources and templates",
+          action: "Browse",
+        },
+      },
+    },
+    quickLinks: {
+      title: "Quick Links",
+      sendChat: "Send Chat",
+      embedDocument: "Embed a Document",
+      createWorkspace: "Create Workspace",
+    },
+    exploreMore: {
+      title: "Explore more features",
+      features: {
+        customAgents: {
+          title: "Custom AI Agents",
+          description: "Build powerful AI Agents and automations with no code.",
+          primaryAction: "Chat using @agent",
+          secondaryAction: "Build an agent flow",
+        },
+        slashCommands: {
+          title: "Slash Commands",
+          description:
+            "Save time and inject prompts using custom slash commands.",
+          primaryAction: "Create a Slash Command",
+          secondaryAction: "Explore on Hub",
+        },
+        systemPrompts: {
+          title: "System Prompts",
+          description:
+            "Modify the system prompt to customize the AI replies of a workspace.",
+          primaryAction: "Modify a System Prompt",
+          secondaryAction: "Manage prompt variables",
+        },
+      },
+    },
+    announcements: {
+      title: "Updates & Announcements",
+    },
+    resources: {
+      title: "Resources",
+      links: {
+        docs: "Docs",
+        star: "Star on Github",
+      },
+      keyboardShortcuts: "Keyboard Shortcuts",
+    },
   },
 
   "new-workspace": {
@@ -255,9 +344,21 @@ const TRANSLATIONS = {
         "Anything more than 45 is likely to lead to continuous chat failures depending on message size.",
     },
     prompt: {
-      title: "Prompt",
+      title: "System Prompt",
       description:
         "The prompt that will be used on this workspace. Define the context and instructions for the AI to generate a response. You should to provide a carefully crafted prompt so the AI can generate a relevant and accurate response.",
+      history: {
+        title: "System Prompt History",
+        clearAll: "Clear All",
+        noHistory: "No system prompt history available",
+        restore: "Restore",
+        delete: "Delete",
+        publish: "Publish to Community Hub",
+        deleteConfirm: "Are you sure you want to delete this history item?",
+        clearAllConfirm:
+          "Are you sure you want to clear all history? This action cannot be undone.",
+        expand: "Expand",
+      },
     },
     refusal: {
       title: "Query mode refusal response",
@@ -265,6 +366,9 @@ const TRANSLATIONS = {
       query: "query",
       "desc-end":
         "mode, you may want to return a custom refusal response when no context is found.",
+      "tooltip-title": "Why am I seeing this?",
+      "tooltip-description":
+        "You are in query mode, which only uses information from your documents. Switch to chat mode for more flexible conversations, or click here to visit our documentation to learn more about chat modes.",
     },
     temperature: {
       title: "LLM Temperature",
@@ -282,7 +386,7 @@ const TRANSLATIONS = {
     snippets: {
       title: "Max Context Snippets",
       description:
-        "This setting controls the maximum amount of context snippets the will be sent to the LLM for per chat or query.",
+        "This setting controls the maximum amount of context snippets that will be sent to the LLM for per chat or query.",
       recommend: "Recommended: 4",
     },
     doc: {
@@ -371,7 +475,7 @@ const TRANSLATIONS = {
       "These are all the recorded chats and messages that have been sent by users ordered by their creation date.",
     export: "Export",
     table: {
-      id: "Id",
+      id: "ID",
       by: "Sent By",
       workspace: "Workspace",
       prompt: "Prompt",
@@ -380,11 +484,63 @@ const TRANSLATIONS = {
     },
   },
 
-  // Appearance
-  appearance: {
-    title: "Appearance",
-    description: "Customize the appearance settings of your platform.",
-    themePreference: {
+  customization: {
+    interface: {
+      title: "UI Preferences",
+      description: "Set your UI preferences for AnythingLLM.",
+    },
+    branding: {
+      title: "Branding & Whitelabeling",
+      description:
+        "White-label your AnythingLLM instance with custom branding.",
+    },
+    chat: {
+      title: "Chat",
+      description: "Set your chat preferences for AnythingLLM.",
+      auto_submit: {
+        title: "Auto-Submit Speech Input",
+        description:
+          "Automatically submit speech input after a period of silence",
+      },
+      auto_speak: {
+        title: "Auto-Speak Responses",
+        description: "Automatically speak responses from the AI",
+      },
+      spellcheck: {
+        title: "Enable Spellcheck",
+        description: "Enable or disable spellcheck in the chat input field",
+      },
+    },
+    items: {
+      theme: {
+        title: "Theme",
+        description: "Select your preferred color theme for the application.",
+      },
+      "show-scrollbar": {
+        title: "Show Scrollbar",
+        description: "Enable or disable the scrollbar in the chat window.",
+      },
+      "support-email": {
+        title: "Support Email",
+        description:
+          "Set the support email address that should be accessible by users when they need help.",
+      },
+      "app-name": {
+        title: "Name",
+        description:
+          "Set a name that is displayed on the login page to all users.",
+      },
+      "chat-message-alignment": {
+        title: "Chat Message Alignment",
+        description:
+          "Select the message alignment mode when using the chat interface.",
+      },
+      "display-language": {
+        title: "Display Language",
+        description:
+          "Select the preferred language to render AnythingLLM's UI in - when translations are available.",
+      },
+      themePreference: {
       theme: "Theme",
       description: "Select your preferred theme for the application.",
       default: "Default",
@@ -408,30 +564,46 @@ const TRANSLATIONS = {
         "User and AI messages are distributed left and right alternating each message",
     },
     logo: {
-      title: "Customize Logo",
-      description: "Upload your custom logo to make your chatbot yours.",
-      add: "Add a custom logo",
-      recommended: "Recommended size: 800 x 200",
-      remove: "Remove",
-      replace: "Replace",
-    },
-    message: {
-      title: "Customize Messages",
-      description: "Customize the automatic messages displayed to your users.",
-      new: "New",
-      system: "system",
-      user: "user",
-      message: "message",
-      assistant: "AnythingLLM Chat Assistant",
-      "double-click": "Double click to edit...",
-      save: "Save Messages",
-    },
-    icons: {
-      title: "Custom Footer Icons",
-      description:
-        "Customize the footer icons displayed on the bottom of the sidebar.",
-      icon: "Icon",
-      link: "Link",
+        title: "Brand Logo",
+        description: "Upload your custom logo to showcase on all pages.",
+        add: "Add a custom logo",
+        recommended: "Recommended size: 800 x 200",
+        remove: "Remove",
+        replace: "Replace",
+      },
+      "welcome-messages": {
+        title: "Welcome Messages",
+        description:
+          "Customize the welcome messages displayed to your users. Only non-admin users will see these messages.",
+        new: "New",
+        system: "system",
+        user: "user",
+        message: "message",
+        assistant: "AnythingLLM Chat Assistant",
+        "double-click": "Double click to edit...",
+        save: "Save Messages",
+      },
+      "browser-appearance": {
+        title: "Browser Appearance",
+        description:
+          "Customize the appearance of the browser tab and title when the app is open.",
+        tab: {
+          title: "Title",
+          description:
+            "Set a custom tab title when the app is open in a browser.",
+        },
+        favicon: {
+          title: "Favicon",
+          description: "Use a custom favicon for the browser tab.",
+        },
+      },
+      "sidebar-footer": {
+        title: "Sidebar Footer Items",
+        description:
+          "Customize the footer items displayed on the bottom of the sidebar.",
+        icon: "Icon",
+        link: "Link",
+      },
     },
     Custom: {
       title: "Custom Site Settings",
@@ -465,8 +637,19 @@ const TRANSLATIONS = {
   llm: {
     title: "LLM Preference",
     description:
-      "These are the credentials and settings for your preferred LLM chat & embedding provider. Its important these keys are current and correct or else AnythingLLM will not function properly.",
+      "These are the credentials and settings for your preferred LLM chat & embedding provider. It is important that these keys are current and correct, or else AnythingLLM will not function properly.",
     provider: "LLM Provider",
+    providers: {
+      azure_openai: {
+        azure_service_endpoint: "Azure Service Endpoint",
+        api_key: "API Key",
+        chat_deployment_name: "Chat Deployment Name",
+        chat_model_token_limit: "Chat Model Token Limit",
+        model_type: "Model Type",
+        default: "Default",
+        reasoning: "Reasoning",
+      },
+    },
   },
 
   transcription: {
@@ -490,8 +673,6 @@ const TRANSLATIONS = {
       "Embedding is the process of turning text into vectors. These credentials are required to turn your files and prompts into a format which AnythingLLM can use to process.",
     provider: {
       title: "Embedding Provider",
-      description:
-        "There is no set up required when using AnythingLLM's native embedding engine.",
     },
   },
 
@@ -501,9 +682,6 @@ const TRANSLATIONS = {
       "Sometimes, you may want to change the default way that new documents are split and chunked before being inserted into your vector database.",
     "desc-end":
       "You should only modify this setting if you understand how text splitting works and it's side effects.",
-    "warn-start": "Changes here will only apply to",
-    "warn-center": "newly embedded documents",
-    "warn-end": ", not existing documents.",
     size: {
       title: "Text Chunk Size",
       description:
@@ -538,12 +716,13 @@ const TRANSLATIONS = {
     table: {
       workspace: "Workspace",
       chats: "Sent Chats",
-      Active: "Active Domains",
+      active: "Active Domains",
+      created: "Created",
     },
   },
 
   "embed-chats": {
-    title: "Embed Chats",
+    title: "Embed Chat History",
     export: "Export",
     description:
       "These are all the recorded chats and messages from any embed that you have published.",
@@ -556,28 +735,26 @@ const TRANSLATIONS = {
     },
   },
 
-  multi: {
-    title: "Multi-User Mode",
-    description:
-      "Set up your instance to support your team by activating Multi-User Mode.",
-    enable: {
-      "is-enable": "Multi-User Mode is Enabled",
-      enable: "Enable Multi-User Mode",
+  security: {
+    title: "Security",
+    multiuser: {
+      title: "Multi-User Mode",
       description:
-        "By default, you will be the only admin. As an admin you will need to create accounts for all new users or admins. Do not lose your password as only an Admin user can reset passwords.",
-      username: "Admin account username",
-      password: "Admin account password",
+        "Set up your instance to support your team by activating Multi-User Mode.",
+      enable: {
+        "is-enable": "Multi-User Mode is Enabled",
+        enable: "Enable Multi-User Mode",
+        description:
+          "By default, you will be the only admin. As an admin you will need to create accounts for all new users or admins. Do not lose your password as only an Admin user can reset passwords.",
+        username: "Admin account username",
+        password: "Admin account password",
+      },
     },
     password: {
       title: "Password Protection",
       description:
         "Protect your AnythingLLM instance with a password. If you forget this there is no recovery method so ensure you save this password.",
-    },
-    instance: {
-      title: "Password Protect Instance",
-      description:
-        "By default, you will be the only admin. As an admin you will need to create accounts for all new users or admins. Do not lose your password as only an Admin user can reset passwords.",
-      password: "Instance password",
+      "password-label": "Instance Password",
     },
   },
 
@@ -608,6 +785,20 @@ const TRANSLATIONS = {
   connectors: {
     "search-placeholder": "Search data connectors",
     "no-connectors": "No data connectors found.",
+    obsidian: {
+      name: "Obsidian",
+      description: "Import Obsidian vault in a single click.",
+      vault_location: "Vault Location",
+      vault_description:
+        "Select your Obsidian vault folder to import all notes and their connections.",
+      selected_files: "Found {{count}} markdown files",
+      importing: "Importing vault...",
+      import_vault: "Import Vault",
+      processing_time:
+        "This may take a while depending on the size of your vault.",
+      vault_warning:
+        "To avoid any conflicts, make sure your Obsidian vault is not currently open.",
+    },
     github: {
       name: "GitHub Repo",
       description:
@@ -798,6 +989,7 @@ const TRANSLATIONS = {
     get_started_default: "To get started",
     upload: "upload a document",
     or: "or",
+    attachments_processing: "Attachments are processing. Please wait...",
     send_chat: "send a chat.",
     send_message: "Send a message",
     attach_file: "Attach a file to this chat",
@@ -806,6 +998,47 @@ const TRANSLATIONS = {
     text_size: "Change text size.",
     microphone: "Speak your prompt.",
     send: "Send prompt message to workspace",
+    tts_speak_message: "TTS Speak message",
+    copy: "Copy",
+    regenerate: "Regenerate",
+    regenerate_response: "Regenerate response",
+    good_response: "Good response",
+    more_actions: "More actions",
+    hide_citations: "Hide citations",
+    show_citations: "Show citations",
+    pause_tts_speech_message: "Pause TTS speech of message",
+    fork: "Fork",
+    delete: "Delete",
+    save_submit: "Save & Submit",
+    cancel: "Cancel",
+    edit_prompt: "Edit prompt",
+    edit_response: "Edit response",
+    at_agent: "@agent",
+    default_agent_description: " - the default agent for this workspace.",
+    custom_agents_coming_soon: "custom agents are coming soon!",
+    slash_reset: "/reset",
+    preset_reset_description: "Clear your chat history and begin a new chat",
+    add_new_preset: " Add New Preset",
+    command: "Command",
+    your_command: "your-command",
+    placeholder_prompt:
+      "This is the content that will be injected in front of your prompt.",
+    description: "Description",
+    placeholder_description: "Responds with a poem about LLMs.",
+    save: "Save",
+    small: "Small",
+    normal: "Normal",
+    large: "Large",
+    workspace_llm_manager: {
+      search: "Search LLM providers",
+      loading_workspace_settings: "Loading workspace settings...",
+      available_models: "Available Models for {{provider}}",
+      available_models_description: "Select a model to use for this workspace.",
+      save: "Use this model",
+      saving: "Setting model as workspace default...",
+      missing_credentials: "This provider is missing credentials!",
+      missing_credentials_description: "Click to set up credentials",
+    },
   },
 
   profile_settings: {
@@ -814,13 +1047,133 @@ const TRANSLATIONS = {
     remove_profile_picture: "Remove Profile Picture",
     username: "Username",
     username_description:
-      "Username must be only contain lowercase letters, numbers, underscores, and hyphens with no spaces",
+      "Username must only contain lowercase letters, numbers, underscores, and hyphens with no spaces",
     new_password: "New Password",
-    passwort_description: "Password must be at least 8 characters long",
+    password_description: "Password must be at least 8 characters long",
     cancel: "Cancel",
     update_account: "Update Account",
     theme: "Theme Preference",
     language: "Preferred language",
+    failed_upload: "Failed to upload profile picture: {{error}}",
+    upload_success: "Profile picture uploaded.",
+    failed_remove: "Failed to remove profile picture: {{error}}",
+    profile_updated: "Profile updated.",
+    failed_update_user: "Failed to update user: {{error}}",
+    account: "Account",
+    support: "Support",
+    signout: "Sign out",
+  },
+
+  "keyboard-shortcuts": {
+    title: "Keyboard Shortcuts",
+    shortcuts: {
+      settings: "Open Settings",
+      workspaceSettings: "Open Current Workspace Settings",
+      home: "Go to Home",
+      workspaces: "Manage Workspaces",
+      apiKeys: "API Keys Settings",
+      llmPreferences: "LLM Preferences",
+      chatSettings: "Chat Settings",
+      help: "Show keyboard shortcuts help",
+      showLLMSelector: "Show workspace LLM Selector",
+    },
+  },
+  community_hub: {
+    publish: {
+      system_prompt: {
+        success_title: "Success!",
+        success_description:
+          "Your System Prompt has been published to the Community Hub!",
+        success_thank_you: "Thank you for sharing to the Community!",
+        view_on_hub: "View on Community Hub",
+        modal_title: "Publish System Prompt",
+        name_label: "Name",
+        name_description: "This is the display name of your system prompt.",
+        name_placeholder: "My System Prompt",
+        description_label: "Description",
+        description_description:
+          "This is the description of your system prompt. Use this to describe the purpose of your system prompt.",
+        tags_label: "Tags",
+        tags_description:
+          "Tags are used to label your system prompt for easier searching. You can add multiple tags. Max 5 tags. Max 20 characters per tag.",
+        tags_placeholder: "Type and press Enter to add tags",
+        visibility_label: "Visibility",
+        public_description: "Public system prompts are visible to everyone.",
+        private_description: "Private system prompts are only visible to you.",
+        publish_button: "Publish to Community Hub",
+        submitting: "Publishing...",
+        submit: "Publish to Community Hub",
+        prompt_label: "Prompt",
+        prompt_description:
+          "This is the actual system prompt that will be used to guide the LLM.",
+        prompt_placeholder: "Enter your system prompt here...",
+      },
+      agent_flow: {
+        public_description: "Public agent flows are visible to everyone.",
+        private_description: "Private agent flows are only visible to you.",
+        success_title: "Success!",
+        success_description:
+          "Your Agent Flow has been published to the Community Hub!",
+        success_thank_you: "Thank you for sharing to the Community!",
+        view_on_hub: "View on Community Hub",
+        modal_title: "Publish Agent Flow",
+        name_label: "Name",
+        name_description: "This is the display name of your agent flow.",
+        name_placeholder: "My Agent Flow",
+        description_label: "Description",
+        description_description:
+          "This is the description of your agent flow. Use this to describe the purpose of your agent flow.",
+        tags_label: "Tags",
+        tags_description:
+          "Tags are used to label your agent flow for easier searching. You can add multiple tags. Max 5 tags. Max 20 characters per tag.",
+        tags_placeholder: "Type and press Enter to add tags",
+        visibility_label: "Visibility",
+        publish_button: "Publish to Community Hub",
+        submitting: "Publishing...",
+        submit: "Publish to Community Hub",
+        privacy_note:
+          "Agent flows are always uploaded as private to protect any sensitive data. You can change the visibility in the Community Hub after publishing. Please verify your flow does not contain any sensitive or private information before publishing.",
+      },
+      slash_command: {
+        success_title: "Success!",
+        success_description:
+          "Your Slash Command has been published to the Community Hub!",
+        success_thank_you: "Thank you for sharing to the Community!",
+        view_on_hub: "View on Community Hub",
+        modal_title: "Publish Slash Command",
+        name_label: "Name",
+        name_description: "This is the display name of your slash command.",
+        name_placeholder: "My Slash Command",
+        description_label: "Description",
+        description_description:
+          "This is the description of your slash command. Use this to describe the purpose of your slash command.",
+        command_label: "Command",
+        command_description:
+          "This is the slash command that users will type to trigger this preset.",
+        command_placeholder: "my-command",
+        tags_label: "Tags",
+        tags_description:
+          "Tags are used to label your slash command for easier searching. You can add multiple tags. Max 5 tags. Max 20 characters per tag.",
+        tags_placeholder: "Type and press Enter to add tags",
+        visibility_label: "Visibility",
+        public_description: "Public slash commands are visible to everyone.",
+        private_description: "Private slash commands are only visible to you.",
+        publish_button: "Publish to Community Hub",
+        submitting: "Publishing...",
+        prompt_label: "Prompt",
+        prompt_description:
+          "This is the prompt that will be used when the slash command is triggered.",
+        prompt_placeholder: "Enter your prompt here...",
+      },
+      generic: {
+        unauthenticated: {
+          title: "Authentication Required",
+          description:
+            "You need to authenticate with the AnythingLLM Community Hub before publishing items.",
+          button: "Connect to Community Hub",
+        },
+      },
+    },
   },
 };
 

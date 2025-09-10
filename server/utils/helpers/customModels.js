@@ -1,7 +1,6 @@
 const { fetchOpenRouterModels } = require("../AiProviders/openRouter");
 const { fetchApiPieModels } = require("../AiProviders/apipie");
 const { perplexityModels } = require("../AiProviders/perplexity");
-const { togetherAiModels } = require("../AiProviders/togetherAi");
 const { fireworksAiModels } = require("../AiProviders/fireworksAi");
 const { ElevenLabsTTS } = require("../TextToSpeech/elevenLabs");
 const { fetchNovitaModels } = require("../AiProviders/novita");
@@ -32,6 +31,10 @@ const SUPPORT_CUSTOM_MODELS = [
   "xai",
   "gemini",
   "ppio",
+  "dpais",
+  "moonshotai",
+  // Embedding Engines
+  "native-embedder",
 ];
 
 async function getCustomModels(provider = "", apiKey = null, basePath = null) {
@@ -81,6 +84,12 @@ async function getCustomModels(provider = "", apiKey = null, basePath = null) {
       return await getGeminiModels(apiKey);
     case "ppio":
       return await getPPIOModels(apiKey);
+    case "dpais":
+      return await getDellProAiStudioModels(basePath);
+    case "moonshotai":
+      return await getMoonshotAiModels(apiKey);
+    case "native-embedder":
+      return await getNativeEmbedderModels();
     default:
       return { models: [], error: "Invalid provider for custom models" };
   }
@@ -159,7 +168,10 @@ async function openAiModels(apiKey = null) {
         !model.id.includes("vision") &&
         !model.id.includes("instruct") &&
         !model.id.includes("audio") &&
-        !model.id.includes("realtime")
+        !model.id.includes("realtime") &&
+        !model.id.includes("image") &&
+        !model.id.includes("moderation") &&
+        !model.id.includes("transcribe")
     )
     .map((model) => {
       return {
@@ -632,6 +644,73 @@ async function getPPIOModels() {
   return { models, error: null };
 }
 
+async function getDellProAiStudioModels(basePath = null) {
+  const { OpenAI: OpenAIApi } = require("openai");
+  try {
+    const { origin } = new URL(
+      basePath || process.env.DELL_PRO_AI_STUDIO_BASE_PATH
+    );
+    const openai = new OpenAIApi({
+      baseURL: `${origin}/v1/openai`,
+      apiKey: null,
+    });
+    const models = await openai.models
+      .list()
+      .then((results) => results.data)
+      .then((models) => {
+        return models
+          .filter((model) => model.capability === "TextToText") // Only include text-to-text models for this handler
+          .map((model) => {
+            return {
+              id: model.id,
+              name: model.name,
+              organization: model.owned_by,
+            };
+          });
+      })
+      .catch((e) => {
+        throw new Error(e.message);
+      });
+    return { models, error: null };
+  } catch (e) {
+    console.error(`getDellProAiStudioModels`, e.message);
+    return {
+      models: [],
+      error: "Could not reach Dell Pro Ai Studio from the provided base path",
+    };
+  }
+}
+
+function getNativeEmbedderModels() {
+  const { NativeEmbedder } = require("../EmbeddingEngines/native");
+  return { models: NativeEmbedder.availableModels(), error: null };
+}
+
+async function getMoonshotAiModels(_apiKey = null) {
+  const apiKey =
+    _apiKey === true
+      ? process.env.MOONSHOT_AI_API_KEY
+      : _apiKey || process.env.MOONSHOT_AI_API_KEY || null;
+
+  const { OpenAI: OpenAIApi } = require("openai");
+  const openai = new OpenAIApi({
+    baseURL: "https://api.moonshot.ai/v1",
+    apiKey,
+  });
+  const models = await openai.models
+    .list()
+    .then((results) => results.data)
+    .catch((e) => {
+      console.error(`MoonshotAi:listModels`, e.message);
+      return [];
+    });
+
+  // Api Key was successful so lets save it for future uses
+  if (models.length > 0) process.env.MOONSHOT_AI_API_KEY = apiKey;
+  return { models, error: null };
+}
+
 module.exports = {
   getCustomModels,
+  SUPPORT_CUSTOM_MODELS,
 };
