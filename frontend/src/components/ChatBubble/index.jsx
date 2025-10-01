@@ -11,7 +11,7 @@ export default function ChatBubble({ message, type, popMsg }) {
     <div
       className={`flex justify-center items-end w-full bg-theme-bg-secondary`}
     >
-      <div className={`py-8 px-4 w-full flex gap-x-5 md:max-w-[80%] flex-col`}>
+      <div className={`py-8 px-4 w-full flex gap-x-5 md:max-w-[80%] lg:max-w-[50%] flex-col`}>
         <div className="flex gap-x-5">
           <UserIcon
             user={{ uid: isUser ? userFromStorage()?.username : "system" }}
@@ -20,6 +20,7 @@ export default function ChatBubble({ message, type, popMsg }) {
 
           <div
             className={`markdown whitespace-pre-line text-white font-normal text-sm md:text-sm flex flex-col gap-y-1 mt-2`}
+            dir="auto"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(renderMarkdown(message)),
             }}

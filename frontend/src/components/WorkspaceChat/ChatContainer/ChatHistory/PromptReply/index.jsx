@@ -28,7 +28,7 @@ const PromptReply = ({
       <div
         className={`flex justify-center items-end w-full ${assistantBackgroundColor}`}
       >
-        <div className="py-6 px-4 w-full flex gap-x-5 md:max-w-[80%] flex-col">
+        <div className="py-6 px-4 w-full flex gap-x-5 md:max-w-[80%] lg:max-w-[50%] flex-col">
           <div className="flex gap-x-5">
             <WorkspaceProfileImage workspace={workspace} />
             <div className="mt-3 ml-5 dot-falling light:invert"></div>
@@ -43,7 +43,7 @@ const PromptReply = ({
       <div
         className={`flex justify-center items-end w-full ${assistantBackgroundColor}`}
       >
-        <div className="py-6 px-4 w-full flex gap-x-5 md:max-w-[80%] flex-col">
+        <div className="py-6 px-4 w-full flex gap-x-5 md:max-w-[80%] lg:max-w-[50%] flex-col">
           <div className="flex gap-x-5">
             <WorkspaceProfileImage workspace={workspace} />
             <span
@@ -64,7 +64,7 @@ const PromptReply = ({
       key={uuid}
       className={`flex justify-center items-end w-full ${assistantBackgroundColor}`}
     >
-      <div className="py-8 px-4 w-full flex gap-x-5 md:max-w-[80%] flex-col">
+      <div className="py-8 px-4 w-full flex gap-x-5 md:max-w-[80%] lg:max-w-[50%] flex-col">
         <div className="flex gap-x-5">
           <WorkspaceProfileImage workspace={workspace} />
           <RenderAssistantChatContent
@@ -125,7 +125,7 @@ function RenderAssistantChatContent({ message }) {
     );
 
   return (
-    <div className="flex flex-col gap-y-1">
+    <div className="flex flex-col gap-y-1" dir="auto">
       {message.match(THOUGHT_REGEX_COMPLETE) && (
         <ThoughtChainComponent
           ref={thoughtChainRef}
@@ -135,6 +135,7 @@ function RenderAssistantChatContent({ message }) {
       )}
       <span
         className="break-words"
+        dir="auto"
         dangerouslySetInnerHTML={{ __html: renderMarkdown(contentRef.current) }}
       />
     </div>

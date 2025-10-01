@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { memo } from "react";
 import { Info, Warning } from "@phosphor-icons/react";
 import UserIcon from "../../../../UserIcon";
@@ -59,7 +60,7 @@ const HistoricalMessage = ({
         key={uuid}
         className={`flex justify-center items-end w-full bg-theme-bg-chat`}
       >
-        <div className="py-8 px-4 w-full flex gap-x-5 md:max-w-[80%] flex-col">
+        <div className="py-8 px-4 w-full flex gap-x-5 md:max-w-[80%] lg:max-w-[50%] flex-col">
           <div className={`flex gap-x-5 ${alignmentCls}`}>
             <ProfileImage role={role} workspace={workspace} />
             <div className="p-2 rounded-lg bg-red-50 text-red-500">
@@ -88,7 +89,7 @@ const HistoricalMessage = ({
         isDeleted ? "animate-remove" : ""
       } flex justify-center items-end w-full group bg-theme-bg-chat`}
     >
-      <div className="py-8 px-4 w-full flex gap-x-5 md:max-w-[80%] flex-col">
+      <div className="py-8 px-4 w-full flex gap-x-5 md:max-w-[80%] lg:max-w-[50%] flex-col">
         <div className={`flex gap-x-5 ${alignmentCls}`}>
           <div className="flex flex-col items-center">
             <ProfileImage role={role} workspace={workspace} />
@@ -112,7 +113,7 @@ const HistoricalMessage = ({
               saveChanges={saveEditedMessage}
             />
           ) : (
-            <div className="break-words">
+            <div className="break-words max-w-[100%]" dir="auto">
               <RenderChatContent
                 role={role}
                 message={message}
@@ -138,7 +139,7 @@ const HistoricalMessage = ({
             </div>
           )}
         </div>
-        <div className="flex gap-x-5 ml-14">
+        <div className="flex gap-x-5 mx-14">
           <Actions
             message={message}
             feedbackScore={feedbackScore}
@@ -220,6 +221,7 @@ const RenderChatContent = memo(
       return (
         <span
           className="flex flex-col gap-y-1"
+          dir="auto"
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(renderMarkdown(message)),
           }}
@@ -255,6 +257,7 @@ const RenderChatContent = memo(
         )}
         <span
           className="flex flex-col gap-y-1"
+          dir="auto"
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(renderMarkdown(msgToRender)),
           }}

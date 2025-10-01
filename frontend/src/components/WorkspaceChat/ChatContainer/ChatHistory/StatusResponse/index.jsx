@@ -20,7 +20,7 @@ export default function StatusResponse({
 
   return (
     <div className="flex justify-center w-full">
-      <div className="w-full max-w-[80%] flex flex-col">
+      <div className="w-full max-w-[80%]  lg:max-w-[50%] flex flex-col">
         <div className=" w-full max-w-[800px]">
           <div
             onClick={handleExpandClick}

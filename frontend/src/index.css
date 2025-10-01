@@ -763,7 +763,7 @@ dialog::backdrop {
 .markdown table td {
   padding: 8px 15px;
   border-bottom: 1px solid #cdcdcd2e;
-  text-align: left;
+  text-align: inherit;
 }
 
 .markdown table th {
